@@ -1,4 +1,6 @@
 ﻿using Gather.Products.Api.Providers;
+using Gather.Products.Api.Storage.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gather.Products.Api.DependencyInjection
 {
@@ -14,6 +16,23 @@ namespace Gather.Products.Api.DependencyInjection
         {
             return services.AddControllers()
                 .AddNewtonsoftJson().Services;
+        }
+
+        public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
+        {
+            return services.AddDbContext<ProductsDbContext>(o =>
+            {
+                if ((configuration.GetValue<string>("ASPNETCORE_ENVIRONMENT") ?? "") != "Production")
+                {
+                    o.UseInMemoryDatabase("ProductsDb");
+                }
+                else
+                {
+                    o.UseSqlServer(configuration.GetConnectionString("ProductsDb"));
+                }
+                o.EnableDetailedErrors();
+                o.EnableSensitiveDataLogging();
+            });
         }
     }
 }

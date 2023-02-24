@@ -1,10 +1,15 @@
+using Gather.Products.Api.Storage.Database;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddFramework()
+    .AddDatabase(builder.Configuration)
     .AddServices();
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+using var dbContextScope = app.Services.CreateScope();
+dbContextScope.ServiceProvider.GetRequiredService<ProductsDbContext>()?.Database.EnsureCreated();
 
+app.MapGet("/", () => "Hello World!");
 app.Use(async (context, next) =>
 {
     if (context?.Request?.Path.Value?.Contains("/api") == true)

@@ -8,10 +8,16 @@ namespace Gather.Products.Api.Tests
     {
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
-            builder.ConfigureAppConfiguration(webBuilder => webBuilder.AddInMemoryCollection(
+            builder.ConfigureAppConfiguration(webBuilder => 
+            webBuilder.AddInMemoryCollection(
                 new List<KeyValuePair<string, string?>>
                 {
-                    new("Secrets:BarCodeApiKey", "api_secret")
+                    new("Secrets:Key", "test-secret"),
+                    new("Secrets:BarCodeApiKey", "api-key"),
+                    new("BarcodeLookupApi:Host", "localhost"),
+                    new("BarcodeLookupApi:Path", "/v3/products"),
+                    new("BarcodeLookupApi:Port", "8001"),
+                    new("BarcodeLookupApi:Scheme", "HTTP"),
                 }));
             base.ConfigureWebHost(builder);
         }

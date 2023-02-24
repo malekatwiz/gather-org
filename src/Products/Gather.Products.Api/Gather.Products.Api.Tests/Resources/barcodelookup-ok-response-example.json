@@ -1,0 +1,71 @@
+﻿{
+  "products": [
+    {
+      "barcode_number": "011111018808",
+      "barcode_formats": "UPC-A 011111018808, EAN-13 0011111018808",
+      "mpn": "",
+      "model": "",
+      "asin": "",
+      "title": "Dove 16-Count White Beauty Bar Soap",
+      "category": "Health & Beauty > Personal Care > Cosmetics > Skin Care",
+      "manufacturer": "Dove",
+      "brand": "Dove",
+      "contributors": [],
+      "age_group": "",
+      "ingredients": "",
+      "nutrition_facts": "",
+      "energy_efficiency_class": "",
+      "color": "",
+      "gender": "unisex",
+      "material": "",
+      "pattern": "",
+      "format": "",
+      "multipack": "",
+      "size": "",
+      "length": "",
+      "width": "",
+      "height": "",
+      "weight": "",
+      "release_date": "",
+      "description": "Dove 16-Count White Beauty Bar Soap - With moisturizing cream, the Dove Beauty Bar is richly blended with the mildest cleansers. This creamy beauty bar will provide the everyday moisturize that is the key to beautiful skin.",
+      "features": [],
+      "images": [
+        "https://images.barcodelookup.com/51809/518099244-1.jpg"
+      ],
+      "last_update": "2022-08-10 23:18:24",
+      "stores": [
+        {
+          "name": "buybuy BABY",
+          "country": "US",
+          "currency": "USD",
+          "currency_symbol": "$",
+          "price": "16.97",
+          "sale_price": "16.97",
+          "tax": [],
+          "link": "https://www.bedbathandbeyond.com/store/product/dove-16-count-white-beauty-bar-soap/5275758?skuId=20571245&mcid=OS_googlepla",
+          "item_group_id": "",
+          "availability": "",
+          "condition": "new",
+          "shipping": [],
+          "last_update": "2022-08-10 21:54:14"
+        },
+        {
+          "name": "Bed Bath & Beyond",
+          "country": "US",
+          "currency": "USD",
+          "currency_symbol": "$",
+          "price": "16.97",
+          "sale_price": "16.97",
+          "tax": [],
+          "link": "https://www.bedbathandbeyond.com/store/product/dove-16-count-white-beauty-bar-soap/5275758?skuId=20571245&mcid=OS_googlepla",
+          "item_group_id": "",
+          "availability": "",
+          "condition": "new",
+          "shipping": [],
+          "last_update": "2022-08-10 23:18:24"
+        }
+      ],
+      "reviews": []
+    }
+  ]
+}
