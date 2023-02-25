@@ -1,4 +1,7 @@
 name: Deploy Products Service
+defaults:
+  run:
+    working-directory: './src/Products/Gather.Products.Api/Gather.Products.Api'
 
 env:
   AZURE_WEBAPP_NAME: gather-org-products-service
@@ -67,6 +70,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
   deploy:
+    needs: build
     permissions:
       contents: none
     runs-on: ubuntu-latest
