@@ -6,7 +6,7 @@ namespace Gather.Products.Api.Storage.Database
     public class ProductsDbContext : DbContext
     {
         public ProductsDbContext(DbContextOptions<ProductsDbContext> options) : base(options)
-        {            
+        {
         }
 
         public DbSet<ProductEntity> Products { get; set; }
