@@ -4,7 +4,7 @@ defaults:
     working-directory: './src/Products/Gather.Products.Api/Gather.Products.Api'
 
 env:
-  AZURE_WEBAPP_NAME: gather-org-products-service
+  AZURE_WEBAPP_NAME: gather-products
   REGISTRY: ghcr.io
   IMAGE_NAME: malekatwiz/gather-org-products
   AZURE_WEBAPP_PACKAGE_PATH: '.'
