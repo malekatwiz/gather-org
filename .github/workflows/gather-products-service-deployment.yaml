@@ -85,4 +85,4 @@ jobs:
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_PRODUCTS_PUBLISH_PROFILE }}
-          images: 'ghcr.io/malekatwiz/gather-org-products:${{ github.sha }}'
+          images: 'ghcr.io/malekatwiz/gather-org-products:latest'
