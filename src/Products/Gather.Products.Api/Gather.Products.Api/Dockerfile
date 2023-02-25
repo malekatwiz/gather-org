@@ -7,10 +7,11 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["Products/Gather.Products.Api/Gather.Products.Api/Gather.Products.Api.csproj", "Products/Gather.Products.Api/Gather.Products.Api/"]
-RUN dotnet restore "Products/Gather.Products.Api/Gather.Products.Api/Gather.Products.Api.csproj"
+COPY ["Gather.Products.Api/Gather.Products.Api.csproj", "Gather.Products.Api/"]
+RUN dotnet restore "Gather.Products.Api/Gather.Products.Api.csproj"
 COPY . .
-WORKDIR "/src/Products/Gather.Products.Api/Gather.Products.Api"
+
+WORKDIR "/src/Gather.Products.Api"
 RUN dotnet build "Gather.Products.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
