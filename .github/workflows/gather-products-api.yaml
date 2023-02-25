@@ -14,7 +14,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: malekatwiz/gather-org/products
+  IMAGE_NAME: malekatwiz/gather-org-products
 
 jobs:
   build:
