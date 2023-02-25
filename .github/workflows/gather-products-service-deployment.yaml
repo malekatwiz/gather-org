@@ -2,16 +2,73 @@ name: Deploy Products Service
 
 env:
   AZURE_WEBAPP_NAME: gather-org-products-service
+  REGISTRY: ghcr.io
+  IMAGE_NAME: malekatwiz/gather-org-products
+  AZURE_WEBAPP_PACKAGE_PATH: '.'
+  DOTNET_VERSION: '7.0.x'
+  ASPNETCORE_ENVIRONMENT: Production
+  Secrets__Key: api-key
+  Secrets__BarCodeApiKey: barcode-api-key
+  ConnectionStrings__ProductsDb: ${{ secrets.PRODUCTS_SERVICE_SQL_CONNECTION }}
 
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
+    branches:
+      - master
+  pull_request:
+    branches:
+      - '*'
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore -o app
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+
+      - name: Log in to the Container registry
+        uses: docker/login-action
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          flavor: |
+            latest=true
+            prefix=
+            suffix=
+          tags: |
+            type=schedule
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha
+            
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: ./src/Products/Gather.Products.Api
+          file: ./src/Products/Gather.Products.Api/Gather.Products.Api/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
   deploy:
     permissions:
       contents: none
