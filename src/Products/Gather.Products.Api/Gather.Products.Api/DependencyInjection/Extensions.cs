@@ -28,7 +28,8 @@ namespace Gather.Products.Api.DependencyInjection
                 }
                 else
                 {
-                    o.UseSqlServer(configuration.GetConnectionString("ProductsDb"));
+                    var connectionString = configuration.GetSection("ConnectionStrings").GetValue<string>("ProductsDb");
+                    o.UseSqlServer(connectionString);
                 }
                 o.EnableDetailedErrors();
                 o.EnableSensitiveDataLogging();
