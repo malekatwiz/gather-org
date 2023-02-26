@@ -1,10 +1,9 @@
 using Gather.Products.Api.Storage.Database;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Configuration.AddEnvironmentVariables()
-    .AddJsonFile("appsettings.json");
-builder.Services.AddFramework()
-    .AddDatabase(builder.Configuration)
+builder.Configuration.AddEnvironmentVariables();
+builder.Services.AddDatabase(builder.Configuration)
+    .AddFramework()    
     .AddServices();
 var app = builder.Build();
 

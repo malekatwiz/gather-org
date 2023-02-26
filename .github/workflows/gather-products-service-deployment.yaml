@@ -9,10 +9,6 @@ env:
   IMAGE_NAME: malekatwiz/gather-org-products
   AZURE_WEBAPP_PACKAGE_PATH: '.'
   DOTNET_VERSION: '7.0.x'
-  ASPNETCORE_ENVIRONMENT: Production
-  Secrets__Key: api-key
-  Secrets__BarCodeApiKey: barcode-api-key
-  ConnectionStrings__ProductsDb: ${{ secrets.PRODUCTS_SERVICE_SQL_CONNECTION }}
 
 on:
   push:
