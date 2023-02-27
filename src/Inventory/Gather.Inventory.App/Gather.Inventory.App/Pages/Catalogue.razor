@@ -1,0 +1,66 @@
+﻿@page "/catalogue"
+<h3>Catalogue</h3>
+
+@if (_products?.Count == 0)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    foreach (var product in _products)
+    {
+        <div class="card w-75 mb-3">
+            <div class="card" style="width: 18rem;">
+                <img src="@product.DefaultImage" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@product.BarCode</h6>
+                    <p class="card-text">@product.Description</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">@product.Category</li>
+                        <li class="list-group-item">@product.Brand</li>
+                        <li class="list-group-item">@product.Weight</li>
+                        <li class="list-group-item">@product.Size</li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="btn btn-primary">Save</a>
+
+                </div>
+            </div>
+        </div>
+    }
+}
+
+@code {
+    private List<ProductModel> _products = new List<ProductModel>
+    {
+        new ProductModel
+        {
+            Title = "Product A",
+            Brand = "Brand Name",
+            Category = "Category",
+            Description = "Description...",
+            Weight = "1L",
+            BarCode = "123456789"
+        },
+        new ProductModel
+        {
+            Title = "Product A",
+            Brand = "Brand Name",
+            Category = "Category",
+            Description = "Description...",
+            Weight = "1L",
+            BarCode = "123456789"
+        },
+        new ProductModel
+        {
+            Title = "Product A",
+            Brand = "Brand Name",
+            Category = "Category",
+            Description = "Description...",
+            Weight = "1L",
+            BarCode = "123456789"
+        }
+    };
+}

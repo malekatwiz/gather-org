@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gather.Inventory.App", "Gat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gather.Inventory.App.Tests", "Inventory\Gather.Inventory.App\Gather.Inventory.App.Tests\Gather.Inventory.App.Tests.csproj", "{BE940BF4-8CB1-4F8E-8A37-EE7615B46673}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gather.Inventory.App", "Inventory\Gather.Inventory.App\Gather.Inventory.App\Gather.Inventory.App.csproj", "{D9323EFA-5AE1-4425-9E95-1D9684915604}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gather.Inventory.App", "Inventory\Gather.Inventory.App\Gather.Inventory.App\Gather.Inventory.App.csproj", "{D9323EFA-5AE1-4425-9E95-1D9684915604}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

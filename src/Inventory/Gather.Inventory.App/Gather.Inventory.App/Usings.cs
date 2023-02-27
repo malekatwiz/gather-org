@@ -1,0 +1,1 @@
+﻿global using Gather.Inventory.App.Products;
