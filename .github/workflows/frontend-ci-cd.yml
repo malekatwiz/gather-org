@@ -17,6 +17,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: List directory contents
+      run: ls -R ./src/frontend
+
     - name: Build Docker image
       working-directory: src/frontend
       run: docker build -t gatherorg-frontend:latest .
