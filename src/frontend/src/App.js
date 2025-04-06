@@ -1,11 +1,11 @@
 import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 // import RegisterVolunteer from './Pages/RegisterVolunteer';
 // import RegisterServiceSeeker from './Pages/RegisterServiceSeeker';
 // import VolunteerList from './Pages/VolunteerList';
 // import ServiceSeekerList from './Pages/ServiceSeekerList';
-import './App.css';
 
 function App() {
   return (
