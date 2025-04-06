@@ -1,0 +1,65 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+      working-directory: src/Frontend
+
+    - name: Build the application
+      run: npm run build
+      working-directory: src/Frontend
+
+  dockerize:
+    runs-on: self-hosted
+    needs: build
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: docker build -t gatherorg-frontend:latest .
+      working-directory: src/Frontend
+
+    - name: Login to GitHub Container Registry
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: echo $GITHUB_TOKEN | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+
+    - name: Push Docker image to GitHub Container Registry
+      run: docker push ghcr.io/${{ github.repository_owner }}/gatherorg-frontend:latest
+
+  ## TODO
+      # deploy:
+  #   runs-on: self-hosted
+  #   needs: dockerize
+
+  #   steps:
+  #   - name: Checkout code
+  #     uses: actions/checkout@v2
+
+  #   - name: Deploy to Kubernetes
+  #     env:
+  #       KUBECONFIG: ${{ secrets.KUBECONFIG }}
+  #     run: |
+  #       kubectl set image deployment/frontend frontend=gatherorg-frontend:latest
