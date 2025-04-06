@@ -1,41 +1,12 @@
-# Frontend Setup for GatherOrg
+# GatherOrg Frontend
 
 This guide will help you set up and run the frontend part of the GatherOrg project.
 
 ## Prerequisites
 
 Make sure you have the following installed on your local machine:
-
-1. [Node.js](https://nodejs.org/) (v14 or later)
-2. [npm](https://www.npmjs.com/) (v6 or later) or [yarn](https://yarnpkg.com/)
-
-## Project Structure
-
-```
-src/Frontend/
-├── Components/
-│   ├── Navbar.csx
-│   ├── Footer.csx
-│   ├── VolunteerForm.csx
-│   ├── ServiceSeekerForm.csx
-│   ├── VolunteerCard.csx
-│   └── ServiceSeekerCard.csx
-├── Pages/
-│   ├── Home.csx
-│   ├── RegisterVolunteer.csx
-│   ├── RegisterServiceSeeker.csx
-│   ├── VolunteerList.csx
-│   └── ServiceSeekerList.csx
-├── Services/
-│   ├── ApiService.cs
-│   └── ThemeService.cs
-├── Assets/
-│   ├── images/
-│   ├── icons/
-│   └── styles/
-│       └── theme.css
-└── App.css
-```
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [npm](https://www.npmjs.com/) (v6 or later) or [yarn](https://yarnpkg.com/)
 
 ## Installation
 
