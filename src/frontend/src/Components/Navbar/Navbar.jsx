@@ -7,10 +7,10 @@ const Navbar = () => (
             <h1>GatherOrg</h1>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/register-volunteer">Register as Volunteer</a></li>
+                {/* <li><a href="/register-volunteer">Register as Volunteer</a></li>
                 <li><a href="/register-service-seeker">Register as Service Seeker</a></li>
                 <li><a href="/volunteers">Volunteers</a></li>
-                <li><a href="/service-seekers">Service Seekers</a></li>
+                <li><a href="/service-seekers">Service Seekers</a></li> */}
             </ul>
         </div>
     </nav>
