@@ -17,11 +17,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: List directory contents
-      run: ls -R ./src/frontend
-
     - name: Build Docker image
-      run: docker build -f './src/frontend/Dockerfile' -t gatherorg-frontend:latest ./src/frontend
+      run: docker build -f './src/frontend/Dockerfile' -t gather-org:frontend-latest ./src/frontend
 
     - name: Login to GitHub Container Registry
       env:
