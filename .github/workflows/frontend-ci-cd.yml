@@ -9,10 +9,7 @@ on:
     paths:
       - './src/frontend/**'
   workflow_dispatch:
-    inputs:
-      admin_only:
-        required: true
-        default: 'true'
+
 
 jobs:  
   build:
