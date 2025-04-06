@@ -19,7 +19,7 @@ jobs:
 
     - name: Build Docker image
       run: docker build -t gatherorg-frontend:latest .
-      working-directory: src/Frontend
+      working-directory: src/frontend
 
     - name: Login to GitHub Container Registry
       env:
